@@ -1,6 +1,15 @@
 (function() {
   "use strict";
 
+  var video = document.getElementById('bgvid');
+  if (!localStorage.getItem('visited')) {
+    localStorage.setItem('visited', 'true');
+    video.muted = false;
+  } else {
+    localStorage.removeItem('visited');
+  }
+
+
   /**
    * Easy selector helper function
    */
