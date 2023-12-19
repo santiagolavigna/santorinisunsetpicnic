@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  var video = document.getElementById('bgvid');
+  let video = document.getElementById('bgvid');
   if (!localStorage.getItem('visited')) {
     localStorage.setItem('visited', 'true');
     video.muted = false;
