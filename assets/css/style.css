@@ -637,10 +637,6 @@ section {
   padding-right: 50px;
 }
 
-.row {
-  --bs-gutter-x: 0 !important; /* Puedes ajustar este valor según sea necesario */
-}
-
 /*--------------------------------------------------------------
 # Why Us
 --------------------------------------------------------------*/
