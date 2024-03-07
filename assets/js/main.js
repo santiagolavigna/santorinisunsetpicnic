@@ -62,4 +62,43 @@
     }
   }, true)
 
+  /*
+  Sending email through phpmailer
+  */
+  on('submit', '#contact-form', function(e) {
+    
+    select('.loading').style.display = 'block';
+    select('.send').style.display = 'none';
+    select('.error-message').style.display = 'none';
+    select('.sent-message').style.display = 'none';
+
+    e.preventDefault(); // Evita que el formulario se envíe normalmente
+    
+    // Obtén los datos del formulario
+    let formData = new FormData(this);
+
+    // Realiza una solicitud AJAX para enviar los datos del formulario al servidor
+    fetch('forms/contact.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+
+      select('.loading').style.display = 'none';
+      select('.send').style.display = 'block';
+
+      if (data === '1') {
+        select('.sent-message').style.display = 'block';
+        select('#contact-form').reset(); 
+      } else {
+        select('.error-message').style.display = 'block';
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      select('.error-message').style.display = 'block';
+    });
+  });
+
 })()
