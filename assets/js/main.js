@@ -88,12 +88,12 @@
       select('.loading').style.display = 'none';
       select('.send').style.display = 'block';
 
-      if (data === '1') {
+      // if (data === '1') {
         select('.sent-message').style.display = 'block';
         select('#contact-form').reset(); 
-      } else {
-        select('.error-message').style.display = 'block';
-      }
+      // } else {
+      //   select('.error-message').style.display = 'block';
+      // }
     })
     .catch(error => {
       console.error('Error:', error);

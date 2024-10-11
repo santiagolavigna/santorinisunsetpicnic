@@ -26,35 +26,35 @@ $sending_email = $_ENV['SMTP_USERNAME'];
 
 $mail = new PHPMailer(true);
 try {
-    $mail->isSMTP();
-    $mail->Host       = 'smtp.hostinger.com';
-    $mail->SMTPAuth   = true; 
-    $mail->Username   = $sending_email;
-    $mail->Password   = $_ENV['SMTP_PASSWORD']; 
-    $mail->SMTPSecure = 'tls'; 
-    $mail->Port       = 587; 
+    // $mail->isSMTP();
+    // $mail->Host       = 'smtp.hostinger.com';
+    // $mail->SMTPAuth   = true; 
+    // $mail->Username   = $sending_email;
+    // $mail->Password   = $_ENV['SMTP_PASSWORD']; 
+    // $mail->SMTPSecure = 'tls'; 
+    // $mail->Port       = 587; 
 
-    // Configuración del remitente y destinatario
-    $mail->setFrom($sending_email, 'SantoriniSunsetPicnic'); // Dirección de correo electrónico y nombre del remitente
-    $mail->addAddress($_ENV['FINAL_ADDRESS']); // Dirección de correo electrónico del destinatario
+    // // Configuración del remitente y destinatario
+    // $mail->setFrom($sending_email, 'SantoriniSunsetPicnic'); // Dirección de correo electrónico y nombre del remitente
+    // $mail->addAddress($_ENV['FINAL_ADDRESS']); // Dirección de correo electrónico del destinatario
 
-    $mail->isHTML(true); 
-    $mail->Subject = $_POST['subject']; 
-    $mail->Body = "
-    <html>
-    <body>
-        <div class='logo d-flex'>
-            <a href='index.html'><img src='../assets/img/logo.svg' alt='' class='img-fluid'></a>
-            <h2>New Contact</h2>
-        </div>
-        <p><strong>Name:</strong> " . $_POST['name'] . "</p>
-        <p><strong>Email:</strong> " . $_POST['email'] . "</p>
-        <p><strong>Message:</strong><br>" . $_POST['message'] . "</p>
-    </body>
-    </html>
-    ";
+    // $mail->isHTML(true); 
+    // $mail->Subject = $_POST['subject']; 
+    // $mail->Body = "
+    // <html>
+    // <body>
+    //     <div class='logo d-flex'>
+    //         <a href='index.html'><img src='../assets/img/logo.svg' alt='' class='img-fluid'></a>
+    //         <h2>New Contact</h2>
+    //     </div>
+    //     <p><strong>Name:</strong> " . $_POST['name'] . "</p>
+    //     <p><strong>Email:</strong> " . $_POST['email'] . "</p>
+    //     <p><strong>Message:</strong><br>" . $_POST['message'] . "</p>
+    // </body>
+    // </html>
+    // ";
     
-    $mail->send();
+    // $mail->send();
     echo true;
 } catch (Exception $e) {
     
