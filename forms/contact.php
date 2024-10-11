@@ -55,6 +55,18 @@ try {
     // ";
     
     // $mail->send();
+
+    ob_start();
+    var_dump($_POST['name']);
+    var_dump($_POST['email']);
+    var_dump($_POST['message']);
+    $data = ob_get_clean();        
+    $date = date("Y/m/d - H:i:s");
+    $fp = fopen('../logs/log.txt', "a+");
+    fwrite($fp, $date . " & " . $data);
+    fwrite($fp, "\n");
+    fclose($fp);
+
     echo true;
 } catch (Exception $e) {
     
